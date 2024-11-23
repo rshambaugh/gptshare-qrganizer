@@ -4,6 +4,9 @@ from app.routers import qr_codes
 from app.routers import items
 
 app = FastAPI()
+app.title = 'QRganizer API'
+app.description = 'An API for managing QR codes with endpoints for creation and retrieval.'
+app.version = '1.0.0'
 app.add_exception_handler(CustomHTTPException, custom_http_exception_handler)
 app.include_router(qr_codes.router)
 
