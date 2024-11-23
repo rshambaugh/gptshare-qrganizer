@@ -28,5 +28,6 @@ def create_qr_code(qr_code: QRCodeCreate, db: Session = Depends(get_db)):
 def read_qr_code(qr_code_id: int, db: Session = Depends(get_db)):
     db_qr_code = db.query(QRCode).filter(QRCode.id == qr_code_id).first()
     if db_qr_code is None:
+    raise CustomHTTPException(status_code=404, detail='QR code not found')  # Custom exception
         raise HTTPException(status_code=404, detail="QR code not found")
     return db_qr_code

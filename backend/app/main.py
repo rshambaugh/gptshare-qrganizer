@@ -1,8 +1,10 @@
 from fastapi import FastAPI
+from app.core.exceptions import custom_http_exception_handler, CustomHTTPException
 from app.routers import qr_codes
 from app.routers import items
 
 app = FastAPI()
+app.add_exception_handler(CustomHTTPException, custom_http_exception_handler)
 app.include_router(qr_codes.router)
 
 # Include routers
