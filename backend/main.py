@@ -456,7 +456,7 @@ def get_items():
                 "category_color": row[9] or "#E0E0E0",  # Default color if none exists
                 "category_icon": row[10] or "fa-solid fa-question",  # Default icon if none exists
                 "is_container": is_container,
-            })
+            })a
 
         return items
 
