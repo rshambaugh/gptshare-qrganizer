@@ -7,6 +7,7 @@ router = APIRouter()
 qr_codes = [
     {"id": 1, "name": "QR Code 1", "url": "http://example.com/1"},
     {"id": 2, "name": "QR Code 2", "url": "http://example.com/2"},
+    # Add more QR codes as needed
 ]
 
 @router.get("/qr_codes/", response_model=List[dict])
