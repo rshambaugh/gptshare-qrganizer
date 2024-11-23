@@ -80,3 +80,22 @@ async def read_qr_codes(skip: int = 0, limit: int = 10, db: Session = Depends(ge
     """
     qr_codes = db.query(QRCode).offset(skip).limit(limit).all()
     return qr_codes
+
+from typing import List
+from app.schemas.schemas import QRCode as QRCodeSchema
+
+@router.get("/qr_codes/", response_model=List[QRCodeSchema])
+async def read_qr_codes(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    """
+    Retrieve a list of QR codes with pagination.
+
+    Args:
+        skip (int): Number of records to skip. Defaults to 0.
+        limit (int): Maximum number of records to return. Defaults to 10.
+        db (Session): Database session dependency.
+
+    Returns:
+        List[QRCodeSchema]: List of QR codes.
+    """
+    qr_codes = db.query(QRCode).offset(skip).limit(limit).all()
+    return qr_codes
