@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routers import qr_codes
 from app.core.exceptions import custom_http_exception_handler, CustomHTTPException
 from app.routers import qr_codes
 from app.routers import items
