@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from app.routers import qr_codes
 from app.routers import items
 
 app = FastAPI()
+app.include_router(qr_codes.router)
 
 # Include routers
 app.include_router(items.router)
